@@ -38,13 +38,13 @@ enum edges {
 	EDGE_NONE
 };
 
-struct options_t {
+struct options {
 	bool blocking;
 	bool useconfig;
 	bool verbose;
 };
 
-struct commands_t {
+struct commands {
 	/* pointers to commands */
 	char *commands[NUM_EDGES];
 	/* splitted commands for execvp */
@@ -53,12 +53,12 @@ struct commands_t {
 	char buffers[NUM_EDGES][LINE_MAX];
 };
 
-struct monitors_t {
+struct monitors {
 	int n;
 	XRRMonitorInfo *monitors;
 };
 
-struct rect_t {
+struct rect {
 	int x;
 	int y;
 	int w;

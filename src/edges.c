@@ -37,9 +37,9 @@ static const char *myname = "edges", *myver = "2.0.1";
 
 static Display *dpy;
 static volatile sig_atomic_t quit;
-static struct options_t options;
-static struct monitors_t monitors;
-static struct commands_t commands;
+static struct options options;
+static struct monitors monitors;
+static struct commands commands;
 
 static void usage(void)
 {
@@ -428,7 +428,7 @@ static void get_monitors(void)
 	monitors.monitors = m;
 }
 
-static bool point_in_rect(int x, int y, struct rect_t *rect)
+static bool point_in_rect(int x, int y, struct rect *rect)
 {
 	if ((rect->x <= x && x < rect->x + rect->w) &&
 	    (rect->y <= y && y < rect->y + rect->h)) {
@@ -442,7 +442,7 @@ static int pointer_in_monitor(int x, int y)
 	int i;
 
 	for (i = 0; i < monitors.n; i++) {
-		struct rect_t rect;
+		struct rect rect;
 
 		rect.x = monitors.monitors[i].x;
 		rect.y = monitors.monitors[i].y;
